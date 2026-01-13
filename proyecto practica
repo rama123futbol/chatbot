@@ -1,0 +1,38 @@
+import discord
+import os
+from discord.ext import commands
+import random
+intents = discord.Intents.default()
+intents.message_content = True
+bot = commands.Bot(command_prefix='$', intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f'Bot ecológico conectado como {bot.user}')
+
+@bot.command()
+async def que_es_el_calentamiento_global(ctx):
+    with open('calentamiento glbal.jpg', 'rb') as f:
+        picture = discord.File(f)
+    await ctx.send(file=picture)
+
+@bot.command()
+async def y_que_podemos_hacer_para_pararlo(ctx):
+    await ctx.send("una causa clave puede ser el mal uso del reciclaje en la sociedad,en "
+    "la imagen que te vamos a mostrar muestra como debes botar la basura en las canecas de reciclaje")
+    with open('canecas.jpg', 'rb') as f:
+        picture = discord.File(f)
+    await ctx.send(file=picture)
+
+@bot.command()
+async def beneficios(ctx):
+    await ctx.send(" Saber reciclar combate el calentamiento global principalmente al reducir drásticamente las emisiones de gases de efecto invernadero (GEI), ya que se ahorra mucha energía en la producción de materiales nuevos (como papel, metal y plástico) y se disminuye el metano de los vertederos. Además, protege recursos naturales, mejora la calidad del aire y el agua, y disminuye la deforestación, contribuyendo a la estabilización del clima y la sostenibilidad ambiental." 
+"Beneficios Clave del Reciclaje contra el Calentamiento Global:"
+"Ahorro Energético: Fabricar productos con materiales reciclados consume mucha menos energía que con materias primas vírgenes. Menos energía consumida significa menos quema de combustibles fósiles y, por tanto, menos CO2."
+"Ejemplo: Reciclar acero usa solo el 10-15% de la energía necesaria para producir acero primario."
+"Menos Emisiones de Metano: Desviar residuos orgánicos e inorgánicos de los vertederos reduce la producción de metano (un potente GEI) que se libera durante su descomposición."
+"Conservación de Recursos Naturales: Reduce la necesidad de talar árboles (papel), extraer minerales (metales) y petróleo (plásticos), procesos intensivos en energía y que liberan gases."
+"Reducción de la Contaminación: Minimiza la contaminación del aire, agua y suelo asociada a la extracción, transporte y procesamiento de materias primas, protegiendo ecosistemas."
+"Disminución de la Deforestación: Al reciclar papel, se reduce la tala de árboles, los cuales son esenciales para absorber CO2 y regular el clima." 
+"En resumen: El reciclaje es una herramienta fundamental para frenar el calentamiento global porque reduce la demanda energética, limita las emisiones de GEI en la producción y gestión de residuos, y protege los ecosistemas que naturalmente capturan carbono, todo lo cual ayuda a estabilizar el clima. ")
+    
